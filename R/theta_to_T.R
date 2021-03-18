@@ -1,0 +1,32 @@
+#' theta_to_T
+#'
+#' @description This function takes theta values on a standardised z-score
+#' metric (i.e., mean = 0, standard deviation = 1 by definition) and converts
+#' it to a T score metric (i.e., mean = 50, standard deviation = 10 by
+#' definition).
+#'
+#' @details In the context of the What's the DIF project, this is used to
+#' convert Health LiTT theta scores (on a z score scale) to T scores.
+#'
+#' @param theta Values of theta on a z-score metric. theta must be numeric
+#' or coercible to numeric. Factors are not allowed.
+#'
+#' @return T scores
+#'
+#' @export
+#'
+#' @examples
+#'\dontrun{
+#'
+#' theta_to_T(c(-3, 0, 3))
+#'
+#' }
+theta_to_T <- function(theta) {
+
+  if(any(is.factor(theta))) {
+    stop("Factors are not allowed. Please try again.")
+  }
+
+  theta <- as.numeric(theta)
+  (theta * 10) + 50
+}

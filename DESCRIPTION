@@ -1,0 +1,18 @@
+Package: whatsthedif
+Type: Package
+Title: Functions for Health Literacy Analyses for "What's the DIF?" Project
+Version: 0.2.0
+Authors@R: person("James", "Griffith", email = "j-griffith@northwestern.edu", role = c("aut", "cre"))
+URL:
+Contact: mailto:<j-griffith@northwestern.edu>
+Description: This package contains functions for the "What's the DIF?" Project,
+    including functions to process and set up the data, as well as to carry 
+    out analyses.
+License: LOL
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Suggests:
+    lordif
+Depends: 
+    R (>= 2.10)
