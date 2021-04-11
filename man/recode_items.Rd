@@ -7,7 +7,7 @@
 recode_items(items, original, recoded)
 }
 \arguments{
-\item{items}{A vector or matrix of items to be recoded.}
+\item{items}{Items to be recoded.}
 
 \item{original}{A vector containing the original coding of the variable
 (e.g., 1, 2, 3, 4).}
@@ -25,8 +25,7 @@ This function is used to recode items
 \details{
 This function is mostly used inside scoring algorithms. In general,
 the scoring algorithms in whatsthedif are meant to operate on the original
-(i.e., not recoded) data. If a dataframe is submitted in the "items"
-argument, it will be converted to a matrix.
+(i.e., not recoded) data. Input can be vectors, matrices, or dataframes.
 }
 \examples{
 \dontrun{

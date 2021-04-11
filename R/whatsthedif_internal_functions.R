@@ -51,3 +51,84 @@ score_surveys <- function (items, min_num_items = ncol(items)) {
                  yes = length(one_survey) * mean(one_survey, na.rm = TRUE),
                  no = NA))
 }
+
+
+# Recode items within a dataframe -----------------------------------------
+
+#' recode_items_in_df
+#'
+#' @description This function is used to recode items within a dataframe.
+#' (e.g., 1 = 4, 2 = 3, 3 = 2, 4 = 1).
+#'
+#' @details In general, the scoring algorithms in whatsthedif are meant to
+#' operate on the original (i.e., not recoded) data. The input must be a
+#' dataframe or an error will result.
+#'
+#' @param items_df A dataframe containing items to be recoded.
+#'
+#' @param original A vector containing the original coding of the variable
+#' (e.g., 1, 2, 3, 4).
+#'
+#' @param recoded A vector containing the recoding of the variable
+#' (e.g., 4, 3, 2, 1). "recoded" and "original" must be the same length.
+#'
+#' @return A dataframe of recoded data are returned (usually questionnaire items).
+#'
+#' @examples
+#'\dontrun{
+#' score_items_in_df(hl_data[some_items])
+#' }
+recode_items_in_df <- function(items_df, original, recoded) {
+
+  if(!is.data.frame(items_df)) {
+    stop("The input must be a dataframe. Please try again.")
+  }
+
+  recoded_items <- apply(items_df,
+                         c(1, 2),
+                         recode_items,
+                         original = original,
+                         recoded = recoded)
+
+  as.data.frame(recoded_items, drop = FALSE)
+
+}
+
+
+# Recode items within a matrix --------------------------------------------
+
+#' recode_items_in_matrix
+#'
+#' @description This function is used to recode items within a matrix
+#' (e.g., 1 = 4, 2 = 3, 3 = 2, 4 = 1).
+#'
+#' @details In general, the scoring algorithms in whatsthedif are meant to
+#' operate on the original (i.e., not recoded) data. The input must be a
+#' matrix or an error will result.
+#'
+#' @param items_matrix A matrix containing items to be recoded.
+#'
+#' @param original A vector containing the original coding of the variable
+#' (e.g., 1, 2, 3, 4).
+#'
+#' @param recoded A vector containing the recoding of the variable
+#' (e.g., 4, 3, 2, 1). "recoded" and "original" must be the same length.
+#'
+#' @return A matrix of recoded data are returned (usually questionnaire items).
+#'
+#' @examples
+#'\dontrun{
+#' score_items_in_matrix(as.matrix(hl_data[some_items]))
+#' }
+recode_items_in_matrix <- function(items_matrix, original, recoded) {
+
+  if(!is.matrix(items_matrix)) {
+    stop("The input must be a matrix. Please try again.")
+  }
+
+  apply(items_matrix,
+        c(1, 2),
+        recode_items,
+        original = original,
+        recoded = recoded)
+}

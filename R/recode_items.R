@@ -5,10 +5,9 @@
 #'
 #' @details This function is mostly used inside scoring algorithms. In general,
 #' the scoring algorithms in whatsthedif are meant to operate on the original
-#' (i.e., not recoded) data. If a dataframe is submitted in the "items"
-#' argument, it will be converted to a matrix.
+#' (i.e., not recoded) data. Input can be vectors, matrices, or dataframes.
 #'
-#' @param items A vector or matrix of items to be recoded.
+#' @param items Items to be recoded.
 #'
 #' @param original A vector containing the original coding of the variable
 #' (e.g., 1, 2, 3, 4).
@@ -28,27 +27,44 @@
 #' }
 recode_items <- function(items, original, recoded) {
 
-  if(is.data.frame(items)) {
-    items <- as.data.frame(items)
-  }
-
   # Check for errors in the input
   if(is.null(original)) {
-    stop("original is required Try again")
+    stop("original is required. Please try again")
   }
 
   if(is.null(recoded)) {
-    stop("recoded is required Try again")
+    stop("recoded is required. Please try again")
   }
 
   if(length(original) != length(recoded)) {
-    stop("original and recoded must be equal in length. Try again")
+    stop("original and recoded must be equal in length. Please try again")
   }
 
-  # Find indices for items in original
-  i <- match(items, original)
+  # Check data type of items
+  items_type <- "default" # Set default type
+  if(is.data.frame(items)) items_type <- "dataframe"
+  if(is.matrix(items)) items_type <- "matrix"
 
-  # Return the recoded data
-  recoded[i]
+  if(items_type == "dataframe") {
+    recoded_items <- recode_items_in_df(items,
+                                        original = original,
+                                        recoded = recoded)
+  }
+
+  if(items_type == "matrix") {
+    recoded_items <- recode_items_in_matrix(items,
+                                            original = original,
+                                            recoded = recoded)
+  }
+
+  if(items_type == "default") {
+    # Find indices for items in original
+    i <- match(items, original)
+
+    recoded_items <- recoded[i]
+    }
+
+  # Return recoded items
+  recoded_items
 
 }

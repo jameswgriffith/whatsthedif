@@ -3,10 +3,12 @@
 #' @description Scores the 8-item Vaccine Confidence Index
 #' The eight items are vci_eng_1-8. The score is a ration with ratios greater
 #' then 1.0 indicating vaccine confidence. Ratios less than 1.0 indicate
-#' suspicion and/or hestiancy towards vacines.
+#' suspicion and/or hesitancy towards vaccines.
 #'
 #' @details
-#' Articles that describe background information on the Vaccine Confidence Index are:
+#' Articles that describe background information on the
+#' Vaccine Confidence Index are:
+#'
 #' Paoli, S.et al. Assessing Vaccine Hesitancy among Healthcare Workers: A
 #' Cross-Sectional Study at an Italian Paediatric Hospital and the
 #' Development of a Healthcare Worker’s Vaccination Compliance Index.
@@ -29,21 +31,20 @@
 #' in order for a score to be given. If the number of non-missing items is
 #' less than min_num_items, then the score will be NA. Otherwise, in the
 #' presence of missing data, prorating will be used. With prorating the score
-#' is (mean(items 1-4) / 4) / (mean(items 5-8) / 4)
+#' is (mean(items 1-4) / 4) / (mean(items 5-8) / 4). For the VCI the default
+#' is 7 items (i.e., 80 percent of the full 8 items, rounded up).
 #'
-#' @return Scores for the Vaccine Confidence Index
+#' @return Scores on the Vaccine Confidence Index
+#'
 #' @export
 #'
 #' @examples
-#'\dontrun{
-#'
-#' score_vci(hl_data[, paste0("vci", 1:8))])
-#'
+#' \dontrun{
+#' vci <- paste0("vci", 1:8)
+#' score_vci(hl_data[vci])
 #' }
-
 score_vci <- function(vci_items,
-                      min_num_items =
-                        ceiling(ncol(vci_items) * .8)) {
+                      min_num_items = 7) {
 
   vci_range <- 1:4L
 
