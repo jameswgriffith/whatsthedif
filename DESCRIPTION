@@ -8,11 +8,13 @@ Contact: mailto:<j-griffith@northwestern.edu>
 Description: This package contains functions for the "What's the DIF?" Project,
     including functions to process and set up the data, as well as to carry 
     out analyses.
-License: LOL
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
 Suggests:
     lordif
+Imports:
+	psych
 Depends: 
     R (>= 2.10)

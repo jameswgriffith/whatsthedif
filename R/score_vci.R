@@ -1,7 +1,7 @@
 #' score_vci
 #'
 #' @description Scores the 8-item Vaccine Confidence Index
-#' The eight items are vci_eng_1-8. The score is a ration with ratios greater
+#' The eight items are vci_eng_1-8. The score is a ratio with ratios greater
 #' then 1.0 indicating vaccine confidence. Ratios less than 1.0 indicate
 #' suspicion and/or hesitancy towards vaccines.
 #'
