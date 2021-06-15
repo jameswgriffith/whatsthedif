@@ -1,4 +1,4 @@
-#' score_vci
+#' score_vci: Scores the Vaccine Confidence Index (VCI) in accord to the standard scoring algorithm (a ratio).
 #'
 #' @description Scores the 8-item Vaccine Confidence Index
 #' The eight items are vci_eng_1-8. The score is a ratio with ratios greater

@@ -1,4 +1,4 @@
-#' theta_to_T
+#' theta_to_T: Takes a variable on a theta (i.e., standardised or z-score metric) and converts it to T score (mean = 50, SD = 10 by definition)
 #'
 #' @description This function takes theta values on a standardised z-score
 #' metric (i.e., mean = 0, standard deviation = 1 by definition) and converts

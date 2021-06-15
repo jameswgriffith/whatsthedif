@@ -1,4 +1,4 @@
-#' score_phq9
+#' score_phq9: Scores the PHQ-9 according to the standard scoring algorithm
 #'
 #' @param phq9_items A matrix (or object coercible to a matrix) containing the
 #' ***first nine*** items of the PHQ-9. Items should be 0, 1, 2, or 3.

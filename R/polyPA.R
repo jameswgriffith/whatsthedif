@@ -1,4 +1,4 @@
-#' polyPA
+#' polyPA: Parallel analysis using the method of Lubbe (2019)
 #'
 #' @description Conducts a parallel analysis using the method of Lubbe (2019).
 #' The code in this function is adapted from the key reference (see below).

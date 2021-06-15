@@ -1,4 +1,4 @@
-#' score_rrs_reflection
+#' score_rrs_reflection: Calculates the reflection subscales (5 items) of the Ruminative Responses Scale (RRS)
 #'
 #' @description Scores the 5-item reflection subscale for the RRS.
 #' The five reflection items are rrs1, rrs3, rrs4, rrs7, rrs8.

@@ -1,4 +1,4 @@
-#' score_rrs_brooding
+#' score_rrs_brooding: Calculates the brooding subscales (5 items) of the Ruminative Responses Scale (RRS)
 #'
 #' @description Scores the 5-item brooding subscale for the RRS.
 #' The five brooding items are rrs2, rrs5, rrs6, rrs9, rrs10.

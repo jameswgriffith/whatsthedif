@@ -2,7 +2,7 @@
 % Please edit documentation in R/polyPA.R
 \name{polyPA}
 \alias{polyPA}
-\title{polyPA}
+\title{polyPA: Parallel analysis using the method of Lubbe (2019)}
 \usage{
 polyPA(data, replications = 1000, prc = 0.99)
 }

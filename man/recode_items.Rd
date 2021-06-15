@@ -2,7 +2,7 @@
 % Please edit documentation in R/recode_items.R
 \name{recode_items}
 \alias{recode_items}
-\title{recode_items}
+\title{recode_items: A function to recode questionnaire items (and other vectors)}
 \usage{
 recode_items(items, original, recoded)
 }
@@ -33,4 +33,7 @@ the scoring algorithms in whatsthedif are meant to operate on the original
 recode_items(1:4, 1:4, c("A", "B", "C", "D"))
 
 }
+}
+\seealso{
+The car::recode function of the "car" package.
 }

@@ -1,4 +1,4 @@
-#' recode_items
+#' recode_items: A function to recode questionnaire items (and other vectors)
 #'
 #' @description This function is used to recode items
 #' (e.g., 1 = 4, 2 = 3, 3 = 2, 4 = 1).
@@ -16,6 +16,8 @@
 #' (e.g., 4, 3, 2, 1). "recoded" and "original" must be the same length.
 #'
 #' @return Recoded data are returned (usually questionnaire items).
+#'
+#' @seealso The car::recode function of the "car" package.
 #'
 #' @export
 #'

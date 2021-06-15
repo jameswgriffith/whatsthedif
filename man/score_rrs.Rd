@@ -2,7 +2,7 @@
 % Please edit documentation in R/score_rrs.R
 \name{score_rrs}
 \alias{score_rrs}
-\title{score_rrs}
+\title{score_rrs: Scores the Ruminative Responses Scale (RRS; all 10 items)}
 \usage{
 score_rrs(rrs_items, min_num_items = ceiling(ncol(rrs_items) * 0.8))
 }
@@ -22,7 +22,7 @@ in this project is min_num_items = 8.}
 Scores for the RRS.
 }
 \description{
-score_rrs
+score_rrs: Scores the Ruminative Responses Scale (RRS; all 10 items)
 }
 \examples{
 \dontrun{

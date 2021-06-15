@@ -9,19 +9,16 @@
 This package contains functions for the "What's the DIF?" Project,
     including functions to process and set up the data, as well as to carry 
     out analyses.
-
-This package contains a variety of functions for the What's the DIF?
-project.
 }
 \section{Words of inspiration}{
 
-Le bon dieu est dans le détail, Gustave Flaubert (1821–1880)
+Le bon dieu est dans le détail, Gustave Flaubert (1821-1880)
 }
 
 \seealso{
 Useful links:
 \itemize{
-  \item \url{}
+  \item \url{https://clinicaltrials.gov/ct2/show/NCT03584490}
 }
 
 }

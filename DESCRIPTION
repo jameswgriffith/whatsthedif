@@ -1,9 +1,9 @@
 Package: whatsthedif
 Type: Package
 Title: Functions for Health Literacy Analyses for "What's the DIF?" Project
-Version: 0.2.0
+Version: 0.2.1
 Authors@R: person("James", "Griffith", email = "j-griffith@northwestern.edu", role = c("aut", "cre"))
-URL:
+URL: https://clinicaltrials.gov/ct2/show/NCT03584490
 Contact: mailto:<j-griffith@northwestern.edu>
 Description: This package contains functions for the "What's the DIF?" Project,
     including functions to process and set up the data, as well as to carry 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/score_rrs_reflection.R
 \name{score_rrs_reflection}
 \alias{score_rrs_reflection}
-\title{score_rrs_reflection}
+\title{score_rrs_reflection: Calculates the reflection subscales (5 items) of the Ruminative Responses Scale (RRS)}
 \usage{
 score_rrs_reflection(
   reflection_items,

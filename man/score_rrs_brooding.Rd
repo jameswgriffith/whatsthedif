@@ -2,7 +2,7 @@
 % Please edit documentation in R/score_rrs_brooding.R
 \name{score_rrs_brooding}
 \alias{score_rrs_brooding}
-\title{score_rrs_brooding}
+\title{score_rrs_brooding: Calculates the brooding subscales (5 items) of the Ruminative Responses Scale (RRS)}
 \usage{
 score_rrs_brooding(
   brooding_items,

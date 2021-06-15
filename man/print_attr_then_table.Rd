@@ -2,7 +2,7 @@
 % Please edit documentation in R/print_attr_then_table.R
 \name{print_attr_then_table}
 \alias{print_attr_then_table}
-\title{Print the attributes of a variable, followed by its frequency table
+\title{print_attr_then_table: Print the attributes of a variable, followed by its frequency table
 This is useful for describing self-report items}
 \usage{
 print_attr_then_table(items, item_number = TRUE)
@@ -17,7 +17,7 @@ then the function will try to coerce it.}
 Returns NULL silently.
 }
 \description{
-Print the attributes of a variable, followed by its frequency table
+print_attr_then_table: Print the attributes of a variable, followed by its frequency table
 This is useful for describing self-report items
 }
 \examples{

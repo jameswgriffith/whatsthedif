@@ -1,4 +1,4 @@
-#' score_rrs
+#' score_rrs: Scores the Ruminative Responses Scale (RRS; all 10 items)
 #'
 #' @param rrs_items A matrix (or an object coercible to a matrix) that contains
 #' the items of the Ruminative Responses Scale (RRS), with each item
