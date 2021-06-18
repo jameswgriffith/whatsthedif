@@ -2,7 +2,7 @@
 % Please edit documentation in R/span_or_eng.R
 \name{span_or_eng}
 \alias{span_or_eng}
-\title{span_or_eng: A helper function to combine English and Spanish variables into a single variable. This is specific to the whatsthedif study}
+\title{A helper function to combine English and Spanish variables into a single variable. This is specific to the whatsthedif study}
 \usage{
 span_or_eng(lang, eng, span)
 }

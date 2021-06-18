@@ -2,7 +2,7 @@
 % Please edit documentation in R/theta_to_T.R
 \name{theta_to_T}
 \alias{theta_to_T}
-\title{theta_to_T: Takes a variable on a theta (i.e., standardised or z-score metric) and converts it to T score (mean = 50, SD = 10 by definition)}
+\title{Takes a variable on a theta (i.e., standardised or z-score metric) and converts it to T score (mean = 50, SD = 10 by definition)}
 \usage{
 theta_to_T(theta)
 }

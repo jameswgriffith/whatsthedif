@@ -2,7 +2,7 @@
 % Please edit documentation in R/score_vci.R
 \name{score_vci}
 \alias{score_vci}
-\title{score_vci: Scores the Vaccine Confidence Index (VCI) in accord to the standard scoring algorithm (a ratio).}
+\title{Scores the Vaccine Confidence Index (VCI) in accord to the standard scoring algorithm (a ratio).}
 \usage{
 score_vci(vci_items, min_num_items = 7)
 }

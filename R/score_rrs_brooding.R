@@ -1,4 +1,4 @@
-#' score_rrs_brooding: Calculates the brooding subscales (5 items) of the Ruminative Responses Scale (RRS)
+#' Calculates the brooding subscales (5 items) of the Ruminative Responses Scale (RRS)
 #'
 #' @description Scores the 5-item brooding subscale for the RRS.
 #' The five brooding items are rrs2, rrs5, rrs6, rrs9, rrs10.
@@ -25,8 +25,7 @@
 #' }
 
 score_rrs_brooding <- function(brooding_items,
-                               min_num_items =
-                                 ceiling(ncol(brooding_items) * .8)) {
+                               min_num_items = 4) {
   # Check names
   brooding_names <- c("rrs2", "rrs5", "rrs6", "rrs9", "rrs10")
 

@@ -1,4 +1,4 @@
-#' recode_items: A function to recode questionnaire items (and other vectors)
+#' A function to recode questionnaire items (and other vectors)
 #'
 #' @description This function is used to recode items
 #' (e.g., 1 = 4, 2 = 3, 3 = 2, 4 = 1).

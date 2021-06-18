@@ -2,12 +2,9 @@
 % Please edit documentation in R/score_rrs_brooding.R
 \name{score_rrs_brooding}
 \alias{score_rrs_brooding}
-\title{score_rrs_brooding: Calculates the brooding subscales (5 items) of the Ruminative Responses Scale (RRS)}
+\title{Calculates the brooding subscales (5 items) of the Ruminative Responses Scale (RRS)}
 \usage{
-score_rrs_brooding(
-  brooding_items,
-  min_num_items = ceiling(ncol(brooding_items) * 0.8)
-)
+score_rrs_brooding(brooding_items, min_num_items = 4)
 }
 \arguments{
 \item{brooding_items}{A matrix (or an object coercible to a matrix) that contains

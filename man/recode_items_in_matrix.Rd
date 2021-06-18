@@ -2,7 +2,7 @@
 % Please edit documentation in R/whatsthedif_internal_functions.R
 \name{recode_items_in_matrix}
 \alias{recode_items_in_matrix}
-\title{recode_items_in_matrix}
+\title{Internal function to recode items within a matrix}
 \usage{
 recode_items_in_matrix(items_matrix, original, recoded)
 }

@@ -2,9 +2,9 @@
 % Please edit documentation in R/score_rrs.R
 \name{score_rrs}
 \alias{score_rrs}
-\title{score_rrs: Scores the Ruminative Responses Scale (RRS; all 10 items)}
+\title{Scores the Ruminative Responses Scale (RRS; all 10 items)}
 \usage{
-score_rrs(rrs_items, min_num_items = ceiling(ncol(rrs_items) * 0.8))
+score_rrs(rrs_items, min_num_items = 8)
 }
 \arguments{
 \item{rrs_items}{A matrix (or an object coercible to a matrix) that contains
@@ -22,7 +22,7 @@ in this project is min_num_items = 8.}
 Scores for the RRS.
 }
 \description{
-score_rrs: Scores the Ruminative Responses Scale (RRS; all 10 items)
+Scores the Ruminative Responses Scale (RRS; all 10 items)
 }
 \examples{
 \dontrun{

@@ -1,4 +1,4 @@
-#' score_rrs_reflection: Calculates the reflection subscales (5 items) of the Ruminative Responses Scale (RRS)
+#' Calculates the reflection subscales (5 items) of the Ruminative Responses Scale (RRS)
 #'
 #' @description Scores the 5-item reflection subscale for the RRS.
 #' The five reflection items are rrs1, rrs3, rrs4, rrs7, rrs8.
@@ -25,8 +25,7 @@
 #' }
 
 score_rrs_reflection <- function(reflection_items,
-                                 min_num_items =
-                                   ceiling(ncol(reflection_items) * .8)) {
+                                 min_num_items = 4) {
   # Check names
   reflection_names <- c("rrs1", "rrs3", "rrs4", "rrs7", "rrs8")
 

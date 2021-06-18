@@ -1,4 +1,4 @@
-#' print_attr_then_table: Print the attributes of a variable, followed by its frequency table
+#' Print the attributes of a variable, followed by its frequency table
 #' This is useful for describing self-report items
 #'
 #' @param items A dataframe of self-report items. If items is not a dataframe,

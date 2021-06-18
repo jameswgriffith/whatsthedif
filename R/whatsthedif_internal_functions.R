@@ -1,6 +1,6 @@
 # whatsthedif internal functions ------------------------------------------
 
-#' score_surveys
+#' Internal generic function for helping to score surveys
 #'
 #'Takes a dataframe of numeric items and calculates a score
 # by multiplying the number of items by the mean item response.
@@ -55,7 +55,9 @@ score_surveys <- function (items, min_num_items = ncol(items)) {
 
 # Recode items within a dataframe -----------------------------------------
 
-#' recode_items_in_df
+# recode_items_in_df
+
+#' Internal function to recode items within a dataframe
 #'
 #' @description This function is used to recode items within a dataframe.
 #' (e.g., 1 = 4, 2 = 3, 3 = 2, 4 = 1).
@@ -97,7 +99,9 @@ recode_items_in_df <- function(items_df, original, recoded) {
 
 # Recode items within a matrix --------------------------------------------
 
-#' recode_items_in_matrix
+# recode_items_in_matrix
+
+#' Internal function to recode items within a matrix
 #'
 #' @description This function is used to recode items within a matrix
 #' (e.g., 1 = 4, 2 = 3, 3 = 2, 4 = 1).

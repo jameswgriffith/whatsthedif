@@ -1,4 +1,4 @@
-#' score_vci: Scores the Vaccine Confidence Index (VCI) in accord to the standard scoring algorithm (a ratio).
+#' Scores the Vaccine Confidence Index (VCI) in accord to the standard scoring algorithm (a ratio).
 #'
 #' @description Scores the 8-item Vaccine Confidence Index
 #' The eight items are vci_eng_1-8. The score is a ratio with ratios greater
@@ -72,7 +72,7 @@ score_vci <- function(vci_items,
   }
 
   vci_items <- apply(vci_items,
-                     2,
+                     c(1, 2),
                      recode_items,
                      original = 1:5,
                      recoded = c(4:1, 5))

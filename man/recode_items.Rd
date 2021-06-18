@@ -2,7 +2,7 @@
 % Please edit documentation in R/recode_items.R
 \name{recode_items}
 \alias{recode_items}
-\title{recode_items: A function to recode questionnaire items (and other vectors)}
+\title{A function to recode questionnaire items (and other vectors)}
 \usage{
 recode_items(items, original, recoded)
 }

@@ -1,4 +1,4 @@
-#' score_rrs: Scores the Ruminative Responses Scale (RRS; all 10 items)
+#' Scores the Ruminative Responses Scale (RRS; all 10 items)
 #'
 #' @param rrs_items A matrix (or an object coercible to a matrix) that contains
 #' the items of the Ruminative Responses Scale (RRS), with each item
@@ -21,7 +21,7 @@
 #' }
 
 score_rrs <- function(rrs_items,
-                      min_num_items = ceiling(ncol(rrs_items) * .8)) {
+                      min_num_items = 8) {
 
   rrs_range <- 1:4L
 

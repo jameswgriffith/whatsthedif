@@ -2,7 +2,7 @@
 % Please edit documentation in R/whatsthedif_internal_functions.R
 \name{score_surveys}
 \alias{score_surveys}
-\title{score_surveys}
+\title{Internal generic function for helping to score surveys}
 \usage{
 score_surveys(items, min_num_items = ncol(items))
 }

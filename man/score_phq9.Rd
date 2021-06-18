@@ -2,9 +2,9 @@
 % Please edit documentation in R/score_phq9.R
 \name{score_phq9}
 \alias{score_phq9}
-\title{score_phq9: Scores the PHQ-9 according to the standard scoring algorithm}
+\title{Scores the PHQ-9 according to the standard scoring algorithm}
 \usage{
-score_phq9(phq9_items, min_num_items = ceiling(ncol(phq9_items) * 0.8))
+score_phq9(phq9_items, min_num_items = 8)
 }
 \arguments{
 \item{phq9_items}{A matrix (or object coercible to a matrix) containing the
@@ -22,7 +22,7 @@ for the PHQ-9 in this project is min_num_items = 8.}
 Scores for the PHQ-9
 }
 \description{
-score_phq9: Scores the PHQ-9 according to the standard scoring algorithm
+Scores the PHQ-9 according to the standard scoring algorithm
 }
 \examples{
 \dontrun{

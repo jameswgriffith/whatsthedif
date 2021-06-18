@@ -2,7 +2,7 @@
 % Please edit documentation in R/whatsthedif_internal_functions.R
 \name{recode_items_in_df}
 \alias{recode_items_in_df}
-\title{recode_items_in_df}
+\title{Internal function to recode items within a dataframe}
 \usage{
 recode_items_in_df(items_df, original, recoded)
 }

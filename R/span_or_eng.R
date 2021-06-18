@@ -1,4 +1,4 @@
-#' span_or_eng: A helper function to combine English and Spanish variables into a single variable. This is specific to the whatsthedif study
+#' A helper function to combine English and Spanish variables into a single variable. This is specific to the whatsthedif study
 #'
 #' @description This function looks at a pair of variables - one for English,
 #' one for Spanish - and returns one of them depending on the \code{lang} parameter.
