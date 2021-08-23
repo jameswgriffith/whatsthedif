@@ -4,7 +4,9 @@
 #' one for Spanish - and returns one of them depending on the \code{lang} parameter.
 #'
 #' @details This function is used to combine the English and Spanish variables
-#' into a single variable
+#' into a single variable. Warnings are given if lang parameter doesn't
+#' match what data are present in eng or span
+#' (see parameter description below).
 #'
 #' @param lang This parameter should be set to "1" for English, "2" for Spanish
 #'
@@ -26,8 +28,18 @@
 #' }
 span_or_eng <- function(lang, eng, span) {
 
+  # Check for errors in input
   if(!(lang %in% 1L:2L)) {
     stop("lang must be 1 for English or 2 for Spanish.")
+  }
+
+  # Check for errors in data
+  if(lang == 1 && is.na(eng) && !is.na(span)) {
+    warning("Language is English, but Spanish data are present. Please check data.")
+  }
+
+  if(lang == 2 && !is.na(eng) && is.na(span)) {
+    warning("Language is Spanish, but English data are present. Please check data.")
   }
 
   if(lang == 1) {

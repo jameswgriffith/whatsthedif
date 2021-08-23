@@ -22,7 +22,9 @@ one for Spanish - and returns one of them depending on the \code{lang} parameter
 }
 \details{
 This function is used to combine the English and Spanish variables
-into a single variable
+into a single variable. Warnings are given if lang parameter doesn't
+match what data are present in eng or span
+(see parameter description below).
 }
 \examples{
 \dontrun{
