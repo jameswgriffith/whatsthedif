@@ -21,7 +21,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: James Griffith \email{j-griffith@northwestern.edu}
+\strong{Maintainer}: James W Griffith \email{j-griffith@northwestern.edu}
 
 }
 \keyword{internal}
