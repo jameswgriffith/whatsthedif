@@ -6,9 +6,7 @@
 \alias{whatsthedif-package}
 \title{whatsthedif: Functions for Health Literacy Analyses for "What's the DIF?" Project}
 \description{
-This package contains functions for the "What's the DIF?" Project,
-    including functions to process and set up the data, as well as to carry 
-    out analyses.
+This package contains functions for the "What's the DIF?" Project, including functions to process and set up the data, as well as to carry out analyses.
 }
 \section{Words of inspiration}{
 

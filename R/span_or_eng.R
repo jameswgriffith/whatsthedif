@@ -29,7 +29,7 @@
 span_or_eng <- function(lang, eng, span) {
 
   # Check for errors in input
-  if(!(lang %in% 1L:2L)) {
+  if(!(lang %in% c(1, 2, NA))) {
     stop("lang must be 1 for English or 2 for Spanish.")
   }
 
