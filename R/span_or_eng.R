@@ -33,13 +33,24 @@ span_or_eng <- function(lang, eng, span) {
     stop("lang must be 1 for English or 2 for Spanish.")
   }
 
+  # Warnings if lang is missing
+  if(is.na(lang) && (!is.na(eng) || !is.na(span))) {
+    warning("lang is missing, but English or Spanish data are present. Please check data.")
+  }
+
+  if(is.na(lang)) return(NA)
+
   # Check for errors in data
+  if(!is.na(eng) && !is.na(span) && eng != span) {
+    warning("Both English and Spanish data are present, but they are different.`")
+  }
+
   if(lang == 1 && is.na(eng) && !is.na(span)) {
-    warning("Language is English, but Spanish data are present. Please check data.")
+    warning("Language is English, but only Spanish data are present. Please check data.")
   }
 
   if(lang == 2 && !is.na(eng) && is.na(span)) {
-    warning("Language is Spanish, but English data are present. Please check data.")
+    warning("Language is Spanish, but only English data are present. Please check data.")
   }
 
   if(lang == 1) {
