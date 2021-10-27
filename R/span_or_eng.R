@@ -42,7 +42,7 @@ span_or_eng <- function(lang, eng, span) {
 
   # Check for errors in data
   if(!is.na(eng) && !is.na(span) && eng != span) {
-    stop("Both English and Spanish data are present, but they are different.`")
+    warning("Both English and Spanish data are present, but they are different.")
   }
 
   if(lang == 1 && is.na(eng) && !is.na(span)) {
@@ -53,21 +53,23 @@ span_or_eng <- function(lang, eng, span) {
     warning("Language is Spanish, but only English data are present. Please check data.")
   }
 
-  # Initialise datum to NA
-  datum <- NA
-
-  if(!is.na(eng) || !is.na(span)) {
-    datum <- max(eng, span, na.rm = TRUE)
+  if(lang == 1) {
+   datum <- eng
+  } else if(lang == 2) {
+   datum <- span
+  } else {
+   datum <- NA
   }
 
-  # if(lang == 1) {
-  #   datum <- eng
-  # } else if(lang == 2) {
-  #   datum <- span
-  # } else {
-  #   datum <- NA
-  # }
-
   return(datum)
+
+  # This is an alternate approach that just gives the "max"
+  # Initialise datum to NA
+  # datum <- NA
+  #
+  # if(!is.na(eng) || !is.na(span)) {
+  #   datum <- max(eng, span, na.rm = TRUE)
+  # }
+  # return(datum)
 
 }
