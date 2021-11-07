@@ -23,7 +23,7 @@
 #' }
 theta_to_T <- function(theta) {
 
-  if(any(is.factor(theta))) {
+  if (any(is.factor(theta))) {
     stop("Factors are not allowed. Please try again.")
   }
 

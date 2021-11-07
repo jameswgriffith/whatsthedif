@@ -1,8 +1,15 @@
 #' Scores the Ruminative Responses Scale (RRS; all 10 items)
 #'
+#' @description Calculates a total score of the 10 RRS items
+#' (i.e., rrs1 through rrs10).
+#' If a vector is supplied as input, it will be converted to a one-row,
+#' five-column dataframe.
+#'
 #' @param rrs_items A matrix (or an object coercible to a matrix) that contains
 #' the items of the Ruminative Responses Scale (RRS), with each item
-#' represented as a number, 1, 2, 3, or 4.
+#' represented as a number, 1, 2, 3, or 4. Anything not a 1, 2, 3, or 4 will
+#' silently be converted to NA.
+#'
 #' @param min_num_items The minimum number of items needed to be non-missing
 #' in order for a score to be given. If the number of non-missing items is
 #' less than min_num_items, then the score will be NA. Otherwise, in the
@@ -25,16 +32,16 @@ score_rrs <- function(rrs_items,
 
   rrs_range <- 1:4L
 
-  n_rrs_items <- 10
+  n_rrs_items <- 10L
 
-  if(ncol(rrs_items) != n_rrs_items) {
+  if (ncol(rrs_items) != n_rrs_items) {
     stop("The RRS has",
          n_rrs_items,
          "items, so there should be",
          n_rrs_items, "columns in rrs_items.")
   }
 
-  if(min_num_items > n_rrs_items) {
+  if (min_num_items > n_rrs_items) {
     stop("The RRS has",
          n_rrs_items,
          "items, so min_num_items must be",
@@ -42,7 +49,7 @@ score_rrs <- function(rrs_items,
          "or smaller.")
   }
 
-  if(min_num_items < 1) {
+  if (min_num_items < 1) {
     stop("min_num_items must be greater than 0.")
   }
 
@@ -51,14 +58,14 @@ score_rrs <- function(rrs_items,
   rrs_items[which(!rrs_items %in% rrs_range,
                   arr.ind = TRUE)] <- NA
 
-  if(all(is.na(rrs_items))) {
+  if (all(is.na(rrs_items))) {
     message("All items are missing in rrs_items.\n")
     message("Check your input.\n")
   } else if (any(is.na(rrs_items))) {
     message("Some items are missing in rrs_items.\n")
   }
 
-  if(min_num_items < n_rrs_items && !all(is.na(rrs_items))) {
+  if (min_num_items < n_rrs_items && any(is.na(rrs_items))) {
     message("Scoring will use prorating if some items are missing.\n")
     message(paste("If you do not want to prorate scores, set min_num_items to",
                   n_rrs_items))

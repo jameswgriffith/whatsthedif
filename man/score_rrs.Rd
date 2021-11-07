@@ -9,7 +9,8 @@ score_rrs(rrs_items, min_num_items = 8)
 \arguments{
 \item{rrs_items}{A matrix (or an object coercible to a matrix) that contains
 the items of the Ruminative Responses Scale (RRS), with each item
-represented as a number, 1, 2, 3, or 4.}
+represented as a number, 1, 2, 3, or 4. Anything not a 1, 2, 3, or 4 will
+silently be converted to NA.}
 
 \item{min_num_items}{The minimum number of items needed to be non-missing
 in order for a score to be given. If the number of non-missing items is
@@ -22,7 +23,10 @@ in this project is min_num_items = 8.}
 Scores for the RRS.
 }
 \description{
-Scores the Ruminative Responses Scale (RRS; all 10 items)
+Calculates a total score of the 10 RRS items
+(i.e., rrs1 through rrs10).
+If a vector is supplied as input, it will be converted to a one-row,
+five-column dataframe.
 }
 \examples{
 \dontrun{

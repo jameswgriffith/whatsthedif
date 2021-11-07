@@ -12,7 +12,8 @@ the items of the Vaccine Confidence Index,
 with each item represented as a number, 1 = Totally agree,
 2 = Partially agree, 3 = Partially disagree, or 4 = Totally disagree. The
 items are internally recoded such that 4 = Totally agree,
-3 = Partially agree, 2 = Partially disagree, or 1 = Totally disagree.}
+3 = Partially agree, 2 = Partially disagree, or 1 = Totally disagree.
+Anything not a 1, 2, 3, or 4 will silently be recoded to NA.}
 
 \item{min_num_items}{The minimum number of items needed to be non-missing
 in order for a score to be given. If the number of non-missing items is
@@ -28,7 +29,8 @@ Scores on the Vaccine Confidence Index
 Scores the 8-item Vaccine Confidence Index
 The eight items are vci_eng_1-8. The score is a ratio with ratios greater
 then 1.0 indicating vaccine confidence. Ratios less than 1.0 indicate
-suspicion and/or hesitancy towards vaccines.
+suspicion and/or hesitancy towards vaccines. If a single vector is supplied
+as input, it will be converted to a one-row, 8-column dataframe.
 }
 \details{
 Articles that describe background information on the

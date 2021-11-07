@@ -1,7 +1,13 @@
 #' Scores the PHQ-9 according to the standard scoring algorithm
 #'
+#' @description Scores a matrix of PHQ-9 items in which each row is an case
+#' (at a particular time point). If a single vector is supplied, it will be
+#' converted to a 1 row by 9 column data frame.
+#'
 #' @param phq9_items A matrix (or object coercible to a matrix) containing the
 #' ***first nine*** items of the PHQ-9. Items should be 0, 1, 2, or 3.
+#' Anything not a 0, 1, 2, or 3 will silently be recoded to NA.
+#'
 #' @param min_num_items The minimum number of items needed to be non-missing
 #' in order for a score to be given. If the number of non-missing items is
 #' less than min_num_items, then the score will be NA. Otherwise, in the
@@ -21,26 +27,36 @@
 score_phq9 <- function(phq9_items,
                        min_num_items = 8) {
 
+  # Handle the case of reflection_items being a single vector
+  if (is.vector(phq9_items)) {
+
+    # Convert items to 1 x 9 dataframe
+    phq9_items <- as.data.frame(t(phq9_items))
+
+    return(score_phq9(phq9_items,
+                      min_num_items = min_num_items))
+  }
+
   phq9_range <- 0:3L
 
-  n_phq9_items <- 9
+  n_phq9_items <- 9L
 
-  if(ncol(phq9_items) == 10) {
+  if (ncol(phq9_items) == 10) {
     stop("The PHQ-9 has 10 items, but only the first 9 are scored.",
     "Please try again using only the first 9 items of the PHQ-9.")
   }
 
-  if(ncol(phq9_items) != n_phq9_items) {
+  if (ncol(phq9_items) != n_phq9_items) {
     stop("The PHQ-9 has 10 items, but only the first 9 are scored.",
     "Please try again using only the first 9 items of the PHQ-9.")
   }
 
-  if(min_num_items > n_phq9_items) {
+  if (min_num_items > n_phq9_items) {
     stop("The PHQ-9 has 10 items, but only the first 9 are scored. min_num_items must be",
     n_phq9_items, "or smaller.")
   }
 
-  if(min_num_items < 1) {
+  if (min_num_items < 1) {
     stop("min_num_items must be greater than 0.")
   }
 
@@ -49,14 +65,14 @@ score_phq9 <- function(phq9_items,
   phq9_items[which(!phq9_items %in% phq9_range,
                    arr.ind = TRUE)] <- NA
 
-  if(all(is.na(phq9_items))) {
+  if (all(is.na(phq9_items))) {
     message("All items are missing in phq9_items.\n")
     message("Check your input.\n")
   } else if (any(is.na(phq9_items))) {
     message("Some items are missing in phq9_items.\n")
   }
 
-  if(min_num_items < n_phq9_items && !all(is.na(phq9_items))) {
+  if (min_num_items < n_phq9_items && any(is.na(phq9_items))) {
     message("Scoring will use prorating if some items are missing.\n")
     message(paste("If you do not want to prorate scores, set min_num_items to",
                   n_phq9_items,

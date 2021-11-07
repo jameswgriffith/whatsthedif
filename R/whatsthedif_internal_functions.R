@@ -46,10 +46,13 @@ score_surveys <- function (items, min_num_items = ncol(items)) {
   # Done handling errors, so apply scoring algorithm below.
   apply(X = items,
         MARGIN = 1,
-        FUN = function(one_survey)
-          ifelse(test = sum(!is.na(one_survey)) >= min_num_items,
-                 yes = length(one_survey) * mean(one_survey, na.rm = TRUE),
-                 no = NA))
+        FUN = function(one_survey) {
+          if (sum(!is.na(one_survey)) >= min_num_items) {
+            length(one_survey) * mean(one_survey, na.rm = TRUE)
+          } else {
+            NA
+          }
+        }) # End apply function call
 }
 
 
@@ -82,7 +85,7 @@ score_surveys <- function (items, min_num_items = ncol(items)) {
 #' }
 recode_items_in_df <- function(items_df, original, recoded) {
 
-  if(!is.data.frame(items_df)) {
+  if (!is.data.frame(items_df)) {
     stop("The input must be a dataframe. Please try again.")
   }
 
@@ -126,7 +129,7 @@ recode_items_in_df <- function(items_df, original, recoded) {
 #' }
 recode_items_in_matrix <- function(items_matrix, original, recoded) {
 
-  if(!is.matrix(items_matrix)) {
+  if (!is.matrix(items_matrix)) {
     stop("The input must be a matrix. Please try again.")
   }
 

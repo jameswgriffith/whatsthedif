@@ -17,19 +17,19 @@ print_attr_then_table <- function(items, item_number = TRUE) {
 
   items <- as.data.frame(items)
 
-  for (i in seq_along(items)){
+  for(i in seq_along(items)){
 
     # Print item number if requested
-    if(item_number) {
+    if (item_number) {
       cat(c("Item#", i, "\n"))}
 
     # Print item name if non-null
-    if(!is.null(attributes(items[i])$names)){
+    if (!is.null(attributes(items[i])$names)){
       cat(c("Name:", attributes(items[i])$names))
     }
 
     # Print variable label if non-null
-    if(!is.null(attributes(items)$variable.labels[i])){
+    if (!is.null(attributes(items)$variable.labels[i])){
       cat(c("Label:", attributes(items)$variable.labels[i], "\n"))
     }
 

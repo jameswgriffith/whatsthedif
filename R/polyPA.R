@@ -26,15 +26,15 @@ polyPA <- function(data,
                    prc = 0.99) {
 
   # Check input
-  if(replications < 1){
+  if (replications < 1){
     stop("replications should be a positive integer; I recommend 500 or larger.")
   }
 
-  if(replications < 500){
+  if (replications < 500){
     warning("replications should be a large number; I recommend 500 or larger.")
   }
 
-  if(prc < 0 | prc > 1){
+  if (prc < 0 | prc > 1){
     stop("prc (for percentile) should be between 0 and 1; I recommend .99, but other options are .5 or .95.")
   }
 
@@ -66,11 +66,13 @@ polyPA <- function(data,
     #5. Calculate Eigenvalues
     ev[i, ] <- eigen(R)$values
   }
+
   list(sample_ev = eigen(polychoric(data)$rho)$values,
-       reference_ev = apply(ev,
-							2,
-							quantile,
-							probs = prc))
+       reference_ev = apply(
+         ev,
+				 2,
+				 quantile,
+				 probs = prc))
 }
 
 # Parallel Analysis With Categorical Variables: Impact of Category

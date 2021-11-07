@@ -29,47 +29,40 @@
 span_or_eng <- function(lang, eng, span) {
 
   # Check for errors in input
-  if(!(lang %in% c(1, 2, NA))) {
+  if (!(lang %in% c(1, 2, NA))) {
     stop("lang must be 1 for English or 2 for Spanish.")
   }
 
   # Warnings if lang is missing
-  if(is.na(lang) && (!is.na(eng) || !is.na(span))) {
+  if (is.na(lang) && (!is.na(eng) || !is.na(span))) {
     warning("lang is missing, but English or Spanish data are present. Please check data.")
   }
 
-  if(is.na(lang)) return(NA)
+  if (is.na(lang)){
+    return(NA)
+  }
 
   # Check for errors in data
-  if(!is.na(eng) && !is.na(span) && eng != span) {
+  if (!is.na(eng) && !is.na(span) && eng != span) {
     warning("Both English and Spanish data are present, but they are different.")
   }
 
-  if(lang == 1 && is.na(eng) && !is.na(span)) {
+  if (lang == 1 && is.na(eng) && !is.na(span)) {
     warning("Language is English, but only Spanish data are present. Please check data.")
   }
 
-  if(lang == 2 && !is.na(eng) && is.na(span)) {
+  if (lang == 2 && !is.na(eng) && is.na(span)) {
     warning("Language is Spanish, but only English data are present. Please check data.")
   }
 
-  if(lang == 1) {
+  if (lang == 1) {
    datum <- eng
-  } else if(lang == 2) {
+  } else if (lang == 2) {
    datum <- span
   } else {
    datum <- NA
   }
 
   return(datum)
-
-  # This is an alternate approach that just gives the "max"
-  # Initialise datum to NA
-  # datum <- NA
-  #
-  # if(!is.na(eng) || !is.na(span)) {
-  #   datum <- max(eng, span, na.rm = TRUE)
-  # }
-  # return(datum)
 
 }

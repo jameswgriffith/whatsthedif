@@ -3,7 +3,8 @@
 #' @description Scores the 8-item Vaccine Confidence Index
 #' The eight items are vci_eng_1-8. The score is a ratio with ratios greater
 #' then 1.0 indicating vaccine confidence. Ratios less than 1.0 indicate
-#' suspicion and/or hesitancy towards vaccines.
+#' suspicion and/or hesitancy towards vaccines. If a single vector is supplied
+#' as input, it will be converted to a one-row, 8-column dataframe.
 #'
 #' @details
 #' Articles that describe background information on the
@@ -26,6 +27,7 @@
 #' 2 = Partially agree, 3 = Partially disagree, or 4 = Totally disagree. The
 #' items are internally recoded such that 4 = Totally agree,
 #' 3 = Partially agree, 2 = Partially disagree, or 1 = Totally disagree.
+#' Anything not a 1, 2, 3, or 4 will silently be recoded to NA.
 #'
 #' @param min_num_items The minimum number of items needed to be non-missing
 #' in order for a score to be given. If the number of non-missing items is
@@ -46,12 +48,19 @@
 score_vci <- function(vci_items,
                       min_num_items = 7) {
 
+  if (is.vector(vci_items)) {
+    # Convert vci_items to 1 x 8 dataframe
+    vci_items <- as.data.frame(t(vci_items))
+
+    return(score_vci(vci_items, min_num_items = min_num_items))
+  }
+
   vci_range <- 1:4L
 
   n_vci_items <- 8L
 
   # Check the number of columns in the input
-  if(ncol(vci_items) != n_vci_items) {
+  if (ncol(vci_items) != n_vci_items) {
     stop("The VCI has ",
          n_vci_items,
          " items, so there should be ",
@@ -59,7 +68,7 @@ score_vci <- function(vci_items,
   }
 
   # Check the input: min_num_items
-  if(min_num_items > n_vci_items) {
+  if (min_num_items > n_vci_items) {
     stop("The VCI has ",
          n_vci_items,
          " items, so min_num_items must be ",
@@ -67,7 +76,7 @@ score_vci <- function(vci_items,
          " or smaller.")
   }
 
-  if(min_num_items < 2) {
+  if (min_num_items < 2) {
     stop("min_num_items cannot be less than 2. We recommend setting it to 7 or 8.")
   }
 
@@ -83,14 +92,14 @@ score_vci <- function(vci_items,
   vci_items[which(!vci_items %in% vci_range,
                        arr.ind = TRUE)] <- NA
 
-  if(all(is.na(vci_items))) {
+  if (all(is.na(vci_items))) {
     message("All items are missing in vci_items.\n")
     message("Check your input.\n")
   } else if (any(is.na(vci_items))) {
     message("Some items are missing in vci_items.\n")
   }
 
-  if(min_num_items < n_vci_items && !all(is.na(vci_items))) {
+  if (min_num_items < n_vci_items && any(is.na(vci_items))) {
     message("Scoring will use prorating for items that are missing.\n")
     message(paste("If you do not want to prorate scores, set min_num_items to",
                   n_vci_items))
@@ -101,9 +110,15 @@ score_vci <- function(vci_items,
   # Done handling errors, so apply scoring algorithm below.
   apply(X = vci_items,
         MARGIN = 1,
-        FUN = function(one_survey)
-          ifelse(test = sum(!is.na(one_survey)) >= min_num_items,
-                 yes = mean(one_survey[1:4], na.rm = TRUE) / mean(one_survey[5:8], na.rm = TRUE),
-                 no = NA))
+        FUN = function(one_survey) {
+          if (sum(!is.na(one_survey)) >= min_num_items) {
 
+            # Calculate VCI Ratio
+            mean(one_survey[1:4], na.rm = TRUE) /
+              mean(one_survey[5:8], na.rm = TRUE)
+
+          } else {
+            NA
+          }
+        }) # End apply function call
 }

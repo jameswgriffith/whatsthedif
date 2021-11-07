@@ -9,7 +9,8 @@ score_rrs_brooding(brooding_items, min_num_items = 4)
 \arguments{
 \item{brooding_items}{A matrix (or an object coercible to a matrix) that contains
 the items of the brooding subscale of the Ruminative Responses Scale (RRS),
-with each item represented as a number, 1, 2, 3, or 4.}
+with each item represented as a number, 1, 2, 3, or 4. Anything not a
+1, 2, 3, or 4 will silently be recoded to NA.}
 
 \item{min_num_items}{The minimum number of items needed to be non-missing
 in order for a score to be given. If the number of non-missing items is
@@ -24,6 +25,8 @@ Scores for the brooding subscale of the RRS.
 \description{
 Scores the 5-item brooding subscale for the RRS.
 The five brooding items are rrs2, rrs5, rrs6, rrs9, rrs10.
+If a vector is supplied as input, it will be converted to a one-row,
+five-column dataframe.
 }
 \examples{
 \dontrun{

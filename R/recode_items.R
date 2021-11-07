@@ -30,36 +30,36 @@
 recode_items <- function(items, original, recoded) {
 
   # Check for errors in the input
-  if(is.null(original)) {
+  if (is.null(original)) {
     stop("original is required. Please try again")
   }
 
-  if(is.null(recoded)) {
+  if (is.null(recoded)) {
     stop("recoded is required. Please try again")
   }
 
-  if(length(original) != length(recoded)) {
+  if (length(original) != length(recoded)) {
     stop("original and recoded must be equal in length. Please try again")
   }
 
   # Check data type of items
   items_type <- "default" # Set default type
-  if(is.data.frame(items)) items_type <- "dataframe"
-  if(is.matrix(items)) items_type <- "matrix"
+  if (is.data.frame(items)) items_type <- "dataframe"
+  if (is.matrix(items)) items_type <- "matrix"
 
-  if(items_type == "dataframe") {
+  if (items_type == "dataframe") {
     recoded_items <- recode_items_in_df(items,
                                         original = original,
                                         recoded = recoded)
   }
 
-  if(items_type == "matrix") {
+  if (items_type == "matrix") {
     recoded_items <- recode_items_in_matrix(items,
                                             original = original,
                                             recoded = recoded)
   }
 
-  if(items_type == "default") {
+  if (items_type == "default") {
     # Find indices for items in original
     i <- match(items, original)
 

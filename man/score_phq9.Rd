@@ -8,7 +8,8 @@ score_phq9(phq9_items, min_num_items = 8)
 }
 \arguments{
 \item{phq9_items}{A matrix (or object coercible to a matrix) containing the
-***first nine*** items of the PHQ-9. Items should be 0, 1, 2, or 3.}
+***first nine*** items of the PHQ-9. Items should be 0, 1, 2, or 3.
+Anything not a 0, 1, 2, or 3 will silently be recoded to NA.}
 
 \item{min_num_items}{The minimum number of items needed to be non-missing
 in order for a score to be given. If the number of non-missing items is
@@ -22,7 +23,9 @@ for the PHQ-9 in this project is min_num_items = 8.}
 Scores for the PHQ-9
 }
 \description{
-Scores the PHQ-9 according to the standard scoring algorithm
+Scores a matrix of PHQ-9 items in which each row is an case
+(at a particular time point). If a single vector is supplied, it will be
+converted to a 1 row by 9 column data frame.
 }
 \examples{
 \dontrun{

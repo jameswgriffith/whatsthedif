@@ -9,7 +9,8 @@ score_rrs_reflection(reflection_items, min_num_items = 4)
 \arguments{
 \item{reflection_items}{A matrix (or an object coercible to a matrix) that contains
 the items of the reflection subscale of the Ruminative Responses Scale (RRS),
-with each item represented as a number, 1, 2, 3, or 4.}
+with each item represented as a number, 1, 2, 3, or 4. Any value that is not
+1, 2, 3, or 4 will silently be recoded to NA.}
 
 \item{min_num_items}{The minimum number of items needed to be non-missing
 in order for a score to be given. If the number of non-missing items is
@@ -24,6 +25,8 @@ Scores for the reflection subscale of the RRS.
 \description{
 Scores the 5-item reflection subscale for the RRS.
 The five reflection items are rrs1, rrs3, rrs4, rrs7, rrs8.
+If a vector is supplied as input, it will be converted to a one-row,
+five-column dataframe.
 }
 \examples{
 \dontrun{
