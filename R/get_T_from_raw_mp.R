@@ -47,8 +47,11 @@ get_T_from_raw_mp <- function(raw_scores,
 
   names(mp_Ts) <- raw_score_range
 
-  # Return output
-  mp_Ts[as.character(raw_scores)]
+  Ts <- mp_Ts[as.character(raw_scores)]
+
+  names(Ts) <- NULL
+
+  return(Ts)
 
 }
 

@@ -39,10 +39,14 @@ get_T_from_items_mp <- function(mp_items,
   raw_scores <- get_raw_score_mp(mp_items = mp_items,
                                  min_num_items = min_num_items)
 
-  # Get T scores and return them
-  get_T_from_raw_mp(
-    raw_scores,
-    rnd_nearest_int = rnd_nearest_int)
+  # Get T scores
+  Ts <- get_T_from_raw_mp(
+          raw_scores = raw_scores,
+          rnd_nearest_int = rnd_nearest_int)
+
+  names(Ts) <- NULL
+
+  return(Ts)
 
 }
 
