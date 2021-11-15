@@ -1,5 +1,5 @@
 #' Calculates raw scores (using summing with prorating)
-#' for NIH Toolbox Meaning and Purpose
+#' for NIH Toolbox Meaning and Purpose (8 items, V2.0)
 #'
 #' @description Scores a matrix of NIH Toolbox Meaning and Purpose items in
 #' which each row is an case
@@ -8,7 +8,7 @@
 #'
 #' @param mp_items A matrix (or object coercible to a matrix) containing the
 #' items of the Meaning and Purpose scale. Items should be 1, 2, 3, 4, 5.
-#' Anything not a 1, 2, 3, 4, 5 will silently be recoded to NA.
+#' Anything not a 1, 2, 3, 4, 5 will silently be re-coded to NA.
 #'
 #' @param min_num_items The minimum number of items needed to be non-missing
 #' in order for a score to be given. If the number of non-missing items is
@@ -28,13 +28,13 @@
 get_raw_score_mp <- function(mp_items,
                      min_num_items = 6) {
 
-  # Handle the case of reflection_items being a single vector
+  # Handle the case of mp_items being a single vector
   if (is.vector(mp_items)) {
 
     # Convert items to 1 x 9 dataframe
     mp_items <- as.data.frame(t(mp_items))
 
-    return(get_raw_score_mp(mp_items, min_num_items = min_num_items))
+    return(get_raw_score_mp(mp_items = mp_items, min_num_items = min_num_items))
 
   }
 
@@ -61,6 +61,7 @@ get_raw_score_mp <- function(mp_items,
 
   mp_items <- as.matrix(mp_items)
 
+  # Replace out-of-range items with NA
   mp_items[which(!mp_items %in% item_range,
                       arr.ind = TRUE)] <- NA
 

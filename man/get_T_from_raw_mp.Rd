@@ -16,11 +16,11 @@ whether the data in raw_score will be rounded to the nearest integer
 (or not)}
 }
 \value{
-T Scores from the lookup table.
+T Scores from the lookup table in the NIH Toolbox manual.
 }
 \description{
 Given a raw score from the manual (range 7-35), what is the
-corresponding T Score. See healthmeasures.net for the NIH Toolbox
+corresponding T Score? See healthmeasures.net for the NIH Toolbox
 manual.
 }
 \examples{

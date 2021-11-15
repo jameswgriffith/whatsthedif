@@ -49,10 +49,4 @@ test_that("raw_score_mp", {
   expect_equal(get_raw_score_mp(mp_test3), NA)
   expect_equal(get_raw_score_mp(mp_test4), NA)
 
-  rm(mp_test1,
-     mp_test2,
-     mp_test3,
-     mp_test4,
-     mp_test_df)
-
 })

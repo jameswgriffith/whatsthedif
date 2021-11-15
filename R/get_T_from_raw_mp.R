@@ -2,7 +2,7 @@
 #' from the manual
 #'
 #' @description Given a raw score from the manual (range 7-35), what is the
-#' corresponding T Score. See healthmeasures.net for the NIH Toolbox
+#' corresponding T Score? See healthmeasures.net for the NIH Toolbox
 #' manual.
 #'
 #' @param raw_scores A vector of raw scores. Because some scoring uses
@@ -12,7 +12,7 @@
 #' whether the data in raw_score will be rounded to the nearest integer
 #' (or not)
 #'
-#' @return T Scores from the lookup table.
+#' @return T Scores from the lookup table in the NIH Toolbox manual.
 #' @export
 #'
 #' @examples

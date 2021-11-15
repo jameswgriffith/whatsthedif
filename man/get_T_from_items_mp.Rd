@@ -2,27 +2,27 @@
 % Please edit documentation in R/get_T_from_items_mp.R
 \name{get_T_from_items_mp}
 \alias{get_T_from_items_mp}
-\title{Returns NIH Toolbox Meaning and Purpose T scores
-from items}
+\title{Returns NIH Toolbox Meaning and Purpose (V2.0) T scores from items}
 \usage{
 get_T_from_items_mp(mp_items, min_num_items = 6, rnd_nearest_int = TRUE)
 }
 \arguments{
 \item{mp_items}{A matrix (or object coercible to a matrix) containing the
 items of the Meaning and Purpose scale. Items should be 1, 2, 3, 4, 5.
-Anything not a 1, 2, 3, 4, 5 will silently be recoded to NA.}
+Anything not a 1, 2, 3, 4, 5 will silently be re-coded to NA.}
 
 \item{min_num_items}{The minimum number of items needed to be non-missing
 in order for a score to be given. If the number of non-missing items is
 less than min_num_items, then the score will be NA. Otherwise, in the
 presence of missing data, prorating will be used. In other words, in the
 context of missing data,
-the score is (7 * mean item response). The default
+the raw score is (7 * mean item response). The default
 for NIH Toolbox Meaning and Purpose in this project is min_num_items = 6.}
 
 \item{rnd_nearest_int}{A TRUE/FALSE variable (TRUE by default) indicating
-whether the data in raw_score will be rounded to the nearest integer
-(or not)}
+whether the raw score will be rounded to the nearest integer
+(or not). If this is set to FALSE, scores between 7 and 35 may be NA with
+prorating.}
 }
 \value{
 T Scores from the lookup table.
@@ -31,7 +31,7 @@ T Scores from the lookup table.
 Given a matrix of items containing NIH Toolbox
 Meaning and Purpose scores, calculate the raw score
 (using prorating if needed) and automatically convert it to the
-corresponding T score
+corresponding T score from the manual.
 }
 \examples{
 \dontrun{

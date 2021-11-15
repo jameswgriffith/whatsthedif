@@ -3,14 +3,14 @@
 \name{get_raw_score_mp}
 \alias{get_raw_score_mp}
 \title{Calculates raw scores (using summing with prorating)
-for NIH Toolbox Meaning and Purpose}
+for NIH Toolbox Meaning and Purpose (8 items, V2.0)}
 \usage{
 get_raw_score_mp(mp_items, min_num_items = 6)
 }
 \arguments{
 \item{mp_items}{A matrix (or object coercible to a matrix) containing the
 items of the Meaning and Purpose scale. Items should be 1, 2, 3, 4, 5.
-Anything not a 1, 2, 3, 4, 5 will silently be recoded to NA.}
+Anything not a 1, 2, 3, 4, 5 will silently be re-coded to NA.}
 
 \item{min_num_items}{The minimum number of items needed to be non-missing
 in order for a score to be given. If the number of non-missing items is
