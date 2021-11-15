@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_T_from_raw_mp.R
 \name{get_T_from_raw_mp}
 \alias{get_T_from_raw_mp}
-\title{Converts NIH Toolbox Meaning and Purpose raw scores using lookup table
+\title{Converts NIH Toolbox Meaning and Purpose v2.0 raw scores using lookup table
 from the manual}
 \usage{
 get_T_from_raw_mp(raw_scores, rnd_nearest_int = TRUE)

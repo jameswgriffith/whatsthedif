@@ -1,4 +1,4 @@
-#' Converts NIH Toolbox Meaning and Purpose raw scores using lookup table
+#' Converts NIH Toolbox Meaning and Purpose v2.0 raw scores using lookup table
 #' from the manual
 #'
 #' @description Given a raw score from the manual (range 7-35), what is the
@@ -33,10 +33,6 @@ get_T_from_raw_mp <- function(raw_scores,
 
   if(rnd_nearest_int) raw_scores <- round(raw_scores, 0)
 
-  raw_score_range <- as.character(7:35)
-
-  names(raw_scores) <- raw_score_range
-
   # T Scores from the lookup table
   # See manual on healthmeasures.net
   mp_Ts <- c(
@@ -47,6 +43,11 @@ get_T_from_raw_mp <- function(raw_scores,
     46.7, 48.8, 50.9, 53.1, 55.5,
     58.2, 61.1, 64.4, 68.5)
 
+  raw_score_range <- as.character(7:35)
+
+  names(mp_Ts) <- raw_score_range
+
+  # Return output
   mp_Ts[as.character(raw_scores)]
 
 }
