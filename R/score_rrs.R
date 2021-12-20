@@ -3,7 +3,7 @@
 #' @description Calculates a total score of the 10 RRS items
 #' (i.e., rrs1 through rrs10).
 #' If a vector is supplied as input, it will be converted to a one-row,
-#' five-column dataframe.
+#' ten-column dataframe.
 #'
 #' @param rrs_items A matrix (or an object coercible to a matrix) that contains
 #' the items of the Ruminative Responses Scale (RRS), with each item
@@ -29,6 +29,16 @@
 
 score_rrs <- function(rrs_items,
                       min_num_items = 8) {
+
+  # Handle the case of rrs_items being a single vector
+  if (is.vector(rrs_items)) {
+
+    # Convert reflection_items to 1 x 10 dataframe
+    rrs_items <- as.data.frame(t(rrs_items))
+
+    return(score_rrs(rrs_items,
+                     min_num_items = min_num_items))
+  }
 
   rrs_range <- 1:4L
 
