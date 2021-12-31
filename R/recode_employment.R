@@ -221,6 +221,8 @@ recode_single_empl <- function(empl) {
     "Out of work less than 1 year" = 8,
     "Out of work more than 1 year" = 9)
 
+  empl <- as.logical(empl)
+
   empl_table[which(empl)]
 
 }
