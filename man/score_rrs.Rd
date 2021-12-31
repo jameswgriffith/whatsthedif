@@ -26,7 +26,7 @@ Scores for the RRS.
 Calculates a total score of the 10 RRS items
 (i.e., rrs1 through rrs10).
 If a vector is supplied as input, it will be converted to a one-row,
-five-column dataframe.
+ten-column dataframe.
 }
 \examples{
 \dontrun{
