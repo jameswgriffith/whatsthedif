@@ -40,7 +40,7 @@ recode_employment <- function(empl_vars) {
 
   # Check for errors
 
-  if(!is.vector(empl_vars)) {
+  if(is.vector(empl_vars)) {
     return(recode_employment_vector(empl_vars))
   }
 
