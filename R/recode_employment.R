@@ -47,7 +47,7 @@ recode_employment <- function(empl_vars) {
   # If needed, coerce to dataframe
   empl_vars <- as.data.frame(empl_vars)
 
-  if(ncol(empl_vars != 9)) {
+  if(ncol(empl_vars) != 9) {
     stop("empl_vars must be a dataframe with 9 columns.")
   }
 
