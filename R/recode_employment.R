@@ -51,10 +51,6 @@ recode_employment <- function(empl_vars) {
     stop("empl_vars must be a dataframe with 9 columns.")
   }
 
-  if(any(!empl_vars %in% c(TRUE, FALSE, NA))) {
-    stop("All elements in empl_vars must be TRUE, FALSE, or NA")
-  }
-
   empl_factor <- apply(empl_vars,
                        1,
                        recode_employment_vector)
