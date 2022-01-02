@@ -12,7 +12,7 @@
 #'
 #' Paoli, S.et al. Assessing Vaccine Hesitancy among Healthcare Workers: A
 #' Cross-Sectional Study at an Italian Paediatric Hospital and the
-#' Development of a Healthcare Worker’s Vaccination Compliance Index.
+#' Development of a Healthcare Workers Vaccination Compliance Index.
 #' Vaccines 2019, 7, 201.
 #'
 #' Larson, H.et al. State of Vaccine Confidence in the EU 2018; European
@@ -32,8 +32,8 @@
 #' @param min_num_items The minimum number of items needed to be non-missing
 #' in order for a score to be given. If the number of non-missing items is
 #' less than min_num_items, then the score will be NA. Otherwise, in the
-#' presence of missing data, prorating will be used. With prorating the score
-#' is (mean(items 1-4) / 4) / (mean(items 5-8) / 4). For the VCI the default
+#' presence of missing data, prorating will be used. The scoring algorithm (with prorating as needed)
+#' is mean(items 1-4) / mean(items 5-8). For the VCI the default
 #' is 7 items (i.e., 80 percent of the full 8 items, rounded up).
 #'
 #' @return Scores on the Vaccine Confidence Index
@@ -51,9 +51,7 @@ score_vci <- function(vci_items,
   if (is.vector(vci_items)) {
     # Convert vci_items to 1 x 8 dataframe
     vci_items <- as.data.frame(t(vci_items))
-
-    return(score_vci(vci_items, min_num_items = min_num_items))
-  }
+    }
 
   vci_range <- 1:4L
 

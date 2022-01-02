@@ -18,8 +18,8 @@ Anything not a 1, 2, 3, or 4 will silently be recoded to NA.}
 \item{min_num_items}{The minimum number of items needed to be non-missing
 in order for a score to be given. If the number of non-missing items is
 less than min_num_items, then the score will be NA. Otherwise, in the
-presence of missing data, prorating will be used. With prorating the score
-is (mean(items 1-4) / 4) / (mean(items 5-8) / 4). For the VCI the default
+presence of missing data, prorating will be used. The scoring algorithm (with prorating as needed)
+is mean(items 1-4) / mean(items 5-8). For the VCI the default
 is 7 items (i.e., 80 percent of the full 8 items, rounded up).}
 }
 \value{
@@ -38,7 +38,7 @@ Vaccine Confidence Index are:
 
 Paoli, S.et al. Assessing Vaccine Hesitancy among Healthcare Workers: A
 Cross-Sectional Study at an Italian Paediatric Hospital and the
-Development of a Healthcare Worker’s Vaccination Compliance Index.
+Development of a Healthcare Workers Vaccination Compliance Index.
 Vaccines 2019, 7, 201.
 
 Larson, H.et al. State of Vaccine Confidence in the EU 2018; European
