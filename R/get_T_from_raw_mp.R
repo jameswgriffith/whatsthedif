@@ -23,11 +23,11 @@
 get_T_from_raw_mp <- function(raw_scores,
                               rnd_nearest_int = TRUE) {
 
-  if(any(!is.vector(raw_scores)) || any(!is.numeric(raw_scores))) {
+  if(!is.vector(raw_scores) || any(!is.numeric(raw_scores))) {
     stop("raw_scores must be a numeric vector")
   }
 
-  if(any(raw_scores < 7) || any(raw_scores > 35)) {
+  if(any(raw_scores < 7, na.rm = TRUE) || any(raw_scores > 35, na.rm = TRUE)) {
     stop("raw_scores should be 7-35. Please check your data and try again")
   }
 
